@@ -10,6 +10,7 @@ namespace HereAPI.Classes
        //API key from Clyde account
        public static readonly string ID = "ES3oXW0pZrhQDjaVT6dn";
        public static readonly string CODE = "99O73pMaaPLbKsATKjni3Q";
+
     }
     public class URL
     {

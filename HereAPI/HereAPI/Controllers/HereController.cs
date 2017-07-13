@@ -11,15 +11,28 @@ namespace HereAPI.Controllers
 {
     public class HereController : ApiController
     {
-        // GET api/<controller>/5
-        public string Get(int id)
+        //TODO use WebClient in try/catch 
+        //use await function? not sure
+        public string Get(int id)//TODO pass destination data
         {
-            return "value";
+            string query = "?";
+            query += "at="+ "-36.8623%2C174.7494";//TODO use location value
+            query += "&app_id="+KEY.ID;
+            query += "&app_code="+KEY.CODE;
+
+            string fullUrl = URL.BASE + URL.Explore + query;
+
+            WebClient client = new WebClient();
+            string result = client.DownloadString(fullUrl);
+
+            return result;
         }
 
         // POST api/<controller>
         public void Post([FromBody]string value)
         {
+
+
         }
     }
 }
