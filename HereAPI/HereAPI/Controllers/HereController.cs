@@ -30,6 +30,7 @@ namespace HereAPI.Controllers
         {
             var popularPlacesList = HereService.GetPopularPlaces(destinationM); 
             return Request.CreateResponse(HttpStatusCode.OK, popularPlacesList); 
+
         }
 
         //using httpPost because passing in object, which could be big
