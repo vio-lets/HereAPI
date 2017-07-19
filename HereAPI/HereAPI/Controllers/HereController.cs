@@ -12,11 +12,10 @@ using HereAPI.Services;
 
 namespace HereAPI.Controllers
 {
-    [RoutePrefix("api/here")]
     public class HereController : ApiController
     {
        
-        [Route("/getDestinationList")]
+        [Route("api/here/getDestinationList")]
         [HttpGet]
         public HttpResponseMessage GetDestinationList()
         {
@@ -25,7 +24,7 @@ namespace HereAPI.Controllers
 
         }
 
-        [Route("/getPopularPlaces")]
+        [Route("api/here/getPopularPlaces")]
         [HttpPost]
         public HttpResponseMessage GetPopularLocation([FromBody] DestinationModel destinationM)
         {
@@ -35,7 +34,7 @@ namespace HereAPI.Controllers
 
         //using httpPost because passing in object, which could be big
         //Get activity detail by the specified url
-        [Route("/getPopularPlaceDetails")]
+        [Route("api/here/getPopularPlaceDetails")]
         [HttpPost]
         public HttpResponseMessage GetPopularPlaceDetails([FromBody] PopularPlacesModel aPopularPlace)
         {
