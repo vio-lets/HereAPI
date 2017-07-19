@@ -22,6 +22,7 @@ namespace HereAPI.Controllers
         {
             var destinationList = HereService.GetAllDestinations(); 
             return Request.CreateResponse(HttpStatusCode.OK, destinationList); 
+
         }
 
         [Route("/getPopularPlaces")]
