@@ -10,6 +10,7 @@ namespace HereAPI.Test
         [TestMethod]
         public void TestMethod1()
         {
+            
             var destList = HereService.GetAllDestinations();
 
             //auckland as destination 

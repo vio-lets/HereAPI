@@ -12,10 +12,11 @@ using HereAPI.Services;
 
 namespace HereAPI.Controllers
 {
+    [RoutePrefix("api/here")]
     public class HereController : ApiController
     {
        
-        [Route("api/here/getDestinationList")]
+        [Route("/getDestinationList")]
         [HttpGet]
         public HttpResponseMessage GetDestinationList()
         {
