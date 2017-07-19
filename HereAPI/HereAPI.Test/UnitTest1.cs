@@ -12,9 +12,14 @@ namespace HereAPI.Test
         {
             var destList = HereService.GetAllDestinations();
 
+            //auckland as destination 
             var dest1 = destList[0];
 
-            var popularPlace = HereService.GetPopularPlaces(dest1); 
+            //get a list of popular places in Auckland
+            var popularPlace = HereService.GetPopularPlaces(dest1);
+
+            //get the detail of a popularPlace (activity detail)
+            var detail = HereService.GetPopularPlaceDetail(popularPlace[0]);
 
         }
     }
