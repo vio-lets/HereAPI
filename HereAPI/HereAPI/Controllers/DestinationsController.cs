@@ -10,19 +10,18 @@ namespace HereAPI.Controllers
 {
     public class DestinationsController : ApiController
     {
-        private DataSet dataSet = new DataSet();
 
         // GET api/<controller>
-        public IEnumerable<Destination> Get()
+        public IEnumerable<DestinationModel> Get()
         {
-            var destinations = dataSet.PresetDestinations().AsEnumerable();
+            var destinations = DataSet.PresetDestinations().AsEnumerable();
             return destinations;
         }
 
         // GET api/<controller>/5
-        public Destination Get(string name)
+        public DestinationModel Get(string name)
         {
-            var destination = dataSet.PresetDestinations().Find(d => d.Name == name);
+            var destination = DataSet.PresetDestinations().Find(d => d.Name == name);
             return destination;
         }
     }

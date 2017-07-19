@@ -13,12 +13,12 @@ namespace HereAPI.Controllers
 
     public class CategoryController : ApiController
     {
-        private DataSet dataSet = new DataSet();
+
 
         // GET api/<controller>
-        public IEnumerable<Category> Get()
+        public IEnumerable<CategoryModel> Get()
         {
-            var Categories = dataSet.PresetCategories().AsEnumerable();
+            var Categories = DataSet.PresetCategories().AsEnumerable();
             return Categories;
         }
 

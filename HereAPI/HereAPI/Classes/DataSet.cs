@@ -6,45 +6,46 @@ using HereAPI.Models;
 
 namespace HereAPI.Classes
 {
-    public class DataSet
+    public static class DataSet
     {
-        public List<Destination> PresetDestinations()
+        //change to static because doesn't have properties 
+        public static List<DestinationModel> PresetDestinations()
         {
-            List<Destination> destinations = new List<Destination>();
+            List<DestinationModel> destinations = new List<DestinationModel>();
 
-            Destination auckland = new Destination();
+            DestinationModel auckland = new DestinationModel();
             auckland.Id = new Guid("00000000-0000-0000-0000-00000000000A");
             auckland.Name = "Auckland";
             auckland.Region = "North Island";
             auckland.Country = "New Zealand";
-            auckland.latitude = -36.850933;
-            auckland.longitude = 174.764491;
+            auckland.Latitude = -36.850933;
+            auckland.Longitude = 174.764491;
 
-            Destination hamilton = new Destination();
+            DestinationModel hamilton = new DestinationModel();
             hamilton.Id = new Guid("00000000-0000-0000-0000-00000000000B");
             hamilton.Name = "Hamilton";
             hamilton.Region = "North Island";
             hamilton.Country = "New Zealand";
-            hamilton.latitude = -37.787221;
-            hamilton.longitude = 175.283010;
+            hamilton.Latitude = -37.787221;
+            hamilton.Longitude = 175.283010;
 
 
-            Destination rotorua = new Destination();
+            DestinationModel rotorua = new DestinationModel();
             rotorua.Id = new Guid("00000000-0000-0000-0000-00000000000C");
             rotorua.Name = "Rotorua";
             rotorua.Region = "North Island";
             rotorua.Country = "New Zealand";
-            rotorua.latitude = -38.135376;
-            rotorua.longitude = 176.253787;
+            rotorua.Latitude = -38.135376;
+            rotorua.Longitude = 176.253787;
 
 
-            Destination wellington = new Destination();
+            DestinationModel wellington = new DestinationModel();
             wellington.Id = new Guid("00000000-0000-0000-0000-00000000000D");
             wellington.Name = "Wellington";
             wellington.Region = "North Island";
             wellington.Country = "New Zealand";
-            wellington.latitude = -41.286453;
-            wellington.longitude = 174.776238;
+            wellington.Latitude = -41.286453;
+            wellington.Longitude = 174.776238;
 
             destinations.Add(auckland);
             destinations.Add(hamilton);
@@ -54,11 +55,11 @@ namespace HereAPI.Classes
             return destinations;
         }
 
-        public List<Category> PresetCategories()
+        public static  List<CategoryModel> PresetCategories()
         {
-            List<Category> Categories = new List<Category>();
+            List<CategoryModel> Categories = new List<CategoryModel>();
 
-            Category c1 = new Category();
+            CategoryModel c1 = new CategoryModel();
             c1.Name = "Sights or Museums";
             c1.Value = "sights-museums";
 
