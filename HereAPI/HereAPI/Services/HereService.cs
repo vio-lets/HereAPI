@@ -46,7 +46,7 @@ namespace HereAPI.Services
                     {
                         Title = item.title,
                         Distance = item.distance,
-                        Category = item.category.title, 
+                        Category = new CategoryModel { Name = item.category.title, Value = item.category.id},
                         AverageRating = item.averageRating,
                         DetailHref = item.href
                     };
@@ -58,10 +58,10 @@ namespace HereAPI.Services
             return popularPlacesList; 
         }
 
-        public static PopularPlaceDetail GetPopularPlaceDetail(PopularPlacesModel aPopularPlace)
+        public static PopularPlaceDetailModel GetPopularPlaceDetail(PopularPlacesModel aPopularPlace)
         {
             var activityHref = aPopularPlace.DetailHref; //use for making another http request 
-            PopularPlaceDetail placeDetail = null; 
+            PopularPlaceDetailModel placeDetail = null; 
 
             if (activityHref != null)
             {
@@ -69,12 +69,17 @@ namespace HereAPI.Services
                 var itemHrefJson = client.DownloadString(activityHref);
                 var itemHref = JsonConvert.DeserializeObject<ItemsHref>(itemHrefJson);
 
-                placeDetail = new PopularPlaceDetail()
+                placeDetail = new PopularPlaceDetailModel()
                 {
                     Name = itemHref.name,
                     PlaceId = itemHref.placeId,
                     FullTextAddress = itemHref.location.address.text,
                 };
+ 
+                placeDetail.Category =  aPopularPlace.Category;
+                placeDetail.MapViewUrl = itemHref.view;
+                placeDetail.PlaceId = itemHref.placeId;
+
 
                 var allContacts = new List<Contact>(); 
                 //add website 
