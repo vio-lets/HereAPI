@@ -24,11 +24,19 @@ namespace HereAPI.Controllers
 
         }
 
+        [Route("api/here/getPlacesCategories")]
+        [HttpGet]
+        public HttpResponseMessage GetPlacesCategories()
+        {
+            var categories = HereService.GetPlacesCategories();
+            return Request.CreateResponse(HttpStatusCode.OK, categories); 
+        }
+
         [Route("api/here/getPopularPlaces")]
         [HttpPost]
-        public HttpResponseMessage GetPopularLocation([FromBody] DestinationModel destinationM)
+        public HttpResponseMessage GetPopularLocation([FromBody] HereApiQuery queryParams)
         {
-            var popularPlacesList = HereService.GetPopularPlaces(destinationM); 
+            var popularPlacesList = HereService.GetPopularPlaces(queryParams); 
             return Request.CreateResponse(HttpStatusCode.OK, popularPlacesList); 
         }
 
@@ -41,6 +49,8 @@ namespace HereAPI.Controllers
             var popularPlaceDetail = HereService.GetPopularPlaceDetail(aPopularPlace);
             return Request.CreateResponse(HttpStatusCode.OK, popularPlaceDetail); 
         }
+
+        
 
         // POST api/<controller>
         public void Post([FromBody]string value)

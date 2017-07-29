@@ -59,11 +59,36 @@ namespace HereAPI.Classes
         {
             List<CategoryModel> Categories = new List<CategoryModel>();
 
+
             CategoryModel c1 = new CategoryModel();
             c1.Name = "Sights or Museums";
             c1.Value = "sights-museums";
+            Categories.Add(c1); 
 
-            Categories.Add(c1);
+            CategoryModel c2 = new CategoryModel();
+            c2.Name = "Food";
+            c2.Value = "eat-drink";
+            Categories.Add(c2); 
+
+            CategoryModel c3 = new CategoryModel();
+            c3.Name = "Accommodation";
+            c3.Value = "accomodation";
+            Categories.Add(c3);
+
+            CategoryModel c4 = new CategoryModel();
+            c4.Name = "Shopping";
+            c4.Value = "shopping";
+            Categories.Add(c4);
+
+            CategoryModel c5 = new CategoryModel();
+            c5.Name = "Natural Scenery";
+            c5.Value = "natural-geographical";
+            Categories.Add(c5);
+
+            CategoryModel c6 = new CategoryModel();
+            c6.Name = "Outdoor & Leisure";
+            c6.Value = "leisure-outdoor";
+            Categories.Add(c6);
 
             return Categories;
         }

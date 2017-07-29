@@ -13,6 +13,7 @@ namespace HereAPI.Models
         public string Title { get; set; }
         public double AverageRating { get; set; }
         public string DetailHref { get; set; }
+        public string Category { get; set; }
 
     }
 
