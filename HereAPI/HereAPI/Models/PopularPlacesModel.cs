@@ -9,6 +9,7 @@ namespace HereAPI.Models
     {
         //popular places based in a location, properties from json result for PlacesExplore 
         //can add more later if need more properties from the actual json result 
+        public string Id { get; set; }
         public int Distance { get; set; }
         public string Title { get; set; }
         public double AverageRating { get; set; }

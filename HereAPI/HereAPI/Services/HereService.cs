@@ -44,6 +44,7 @@ namespace HereAPI.Services
                 {
                     PopularPlacesModel popularPlace = new PopularPlacesModel()
                     {
+                        Id = item.id, 
                         Title = item.title,
                         Distance = item.distance,
                         Category = new CategoryModel { Name = item.category.title, Value = item.category.id},
