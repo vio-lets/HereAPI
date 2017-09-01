@@ -45,7 +45,13 @@ namespace HereAPI.Controllers
         [HttpPost]
         public HttpResponseMessage GetPopularPlaceDetails([FromBody] PopularPlacesModel aPopularPlace)
         {
-            var popularPlaceDetail = HereService.GetPopularPlaceDetail(aPopularPlace);
+            PopularPlaceDetailModel popularPlaceDetail = null; 
+            if (aPopularPlace != null)
+            {         
+                popularPlaceDetail = HereService.GetPopularPlaceDetail(aPopularPlace);
+            }
+
+            //return null when detecting invalid
             return Request.CreateResponse(HttpStatusCode.OK, popularPlaceDetail); 
         }
 

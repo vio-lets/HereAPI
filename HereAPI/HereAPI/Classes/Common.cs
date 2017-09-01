@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace HereAPI.Classes
@@ -50,6 +51,49 @@ namespace HereAPI.Classes
             var url = _BASE + categoriesPlaces + "?" + appKey + at + others;
             return url;
         }
+
+
+        #region Place DetailHref url 
+        public static string ParseDetailHref(string detailHref)
+        {
+            string newUrl = "";
+            string pattern = @"((https:\/\/places.cit.api.here.com\/places\/v1\/places\/)(.+);(context=(.+))?)((app_id=(.+))&(app_code=(.+)))";
+            var matches = Regex.Matches(detailHref, pattern);
+            if (matches.Count == 1)
+            {
+                newUrl = matches[0].Groups[1].Value;
+            }
+            else
+            {
+                newUrl = "invalid url";
+            }
+
+            return newUrl;
+        } 
+
+        public static string AppendCredentialsDetailHref(string detailHref)
+        {
+            string credentials = String.Format("app_id={0}&app_code={1}", KEY.ID, KEY.CODE);
+            string newHref = detailHref + credentials;
+            return newHref; 
+        }
+
+        public static Boolean IsValidPlaceDetailHref(string detailHref)
+        {
+            string pattern = @"((https:\/\/places.cit.api.here.com\/places\/v1\/places\/)(.+);(context=(.+))?)";
+            var matches = Regex.Matches(detailHref, pattern);
+
+            bool isValidHref = false;
+            if (matches.Count == 1)
+            {
+                //valid href - matching pattern 
+                isValidHref = true;
+            }
+            return isValidHref;
+        }
+
+    #endregion
+
     }
 
     /// <summary>

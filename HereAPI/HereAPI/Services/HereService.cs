@@ -8,6 +8,7 @@ using HereAPI.Classes;
 using System.Net;
 using Newtonsoft.Json;
 using static HereAPI.Classes.HereUrl;
+using System.Text.RegularExpressions;
 
 namespace HereAPI.Services
 {
@@ -44,13 +45,13 @@ namespace HereAPI.Services
                 {
                     PopularPlacesModel popularPlace = new PopularPlacesModel()
                     {
-                        Id = item.id, 
+                        Id = item.id,
                         Title = item.title,
                         Distance = item.distance,
-                        Category = new CategoryModel { Name = item.category.title, Value = item.category.id},
+                        Category = new CategoryModel { Name = item.category.title, Value = item.category.id },
                         AverageRating = item.averageRating,
-                        DetailHref = item.href
-                    };
+                        DetailHref = ParseDetailHref(item.href)
+                    }; 
 
                     popularPlacesList.Add(popularPlace);
                 }
@@ -61,7 +62,15 @@ namespace HereAPI.Services
 
         public static PopularPlaceDetailModel GetPopularPlaceDetail(PopularPlacesModel aPopularPlace)
         {
-            var activityHref = aPopularPlace.DetailHref; //use for making another http request 
+            string detailHref = aPopularPlace.DetailHref;
+            bool validHref = IsValidPlaceDetailHref(detailHref);
+
+            if (!validHref) return null;
+
+            //using the href with credentials
+            detailHref =  AppendCredentialsDetailHref(detailHref);      
+
+            var activityHref = detailHref; //use for making another http request 
             PopularPlaceDetailModel placeDetail = null; 
 
             if (activityHref != null)
@@ -128,6 +137,12 @@ namespace HereAPI.Services
             //WebClient client = new WebClient();
             //var response = client.DownloadString(fullUrl); 
             return DataSet.PresetCategories(); 
-        } 
+        }
+        
+    
+
+    
+
+        
     }
 }
