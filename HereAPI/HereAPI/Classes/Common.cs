@@ -9,8 +9,8 @@ namespace HereAPI.Classes
     public class KEY
     {
         //API key from Clyde account
-        public static readonly string ID = "ES3oXW0pZrhQDjaVT6dn";
-        public static readonly string CODE = "99O73pMaaPLbKsATKjni3Q";
+        public static readonly string ID = "W0copuQ9ijrcSIcaQSqy";
+        public static readonly string CODE = "mZEGYvT-UCAPeltJ5CZgrg";
 
     }
     public static class HereUrl
