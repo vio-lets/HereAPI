@@ -19,8 +19,8 @@ namespace HereAPI
             }
             else
             {
-                origin = "http://client.larkyo.com";
-
+                //origin = "http://client.larkyo.com";
+                origin = "*";
             }
             var cors = new EnableCorsAttribute(origin, "*", "*");
             config.EnableCors(cors);
