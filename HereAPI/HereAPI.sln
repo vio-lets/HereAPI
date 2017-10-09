@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HereAPI", "HereAPI\HereAPI.csproj", "{A958EEC5-5C20-42D1-8BD0-7D15EB4260C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HereAPI.Test", "HereAPI.Test\HereAPI.Test.csproj", "{31817C1D-EC91-4243-9FD7-A931F4B718C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A958EEC5-5C20-42D1-8BD0-7D15EB4260C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A958EEC5-5C20-42D1-8BD0-7D15EB4260C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A958EEC5-5C20-42D1-8BD0-7D15EB4260C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31817C1D-EC91-4243-9FD7-A931F4B718C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31817C1D-EC91-4243-9FD7-A931F4B718C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31817C1D-EC91-4243-9FD7-A931F4B718C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31817C1D-EC91-4243-9FD7-A931F4B718C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

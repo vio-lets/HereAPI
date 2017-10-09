@@ -5,11 +5,11 @@ using System.Web;
 
 namespace HereAPI.Models
 {
-    public class Category
+    public class CategoryModel
     {
-        public Category()
+        public CategoryModel()
         {}
-        public Category(string Name, string Value)
+        public CategoryModel(string Name, string Value)
         {
             this.Name = Name;
             this.Value = Value;
